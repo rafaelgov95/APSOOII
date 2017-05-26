@@ -6,34 +6,43 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-
 const mongodb = require('mongoose');
 var estacionamento = require('./routes/crud-estacionamento/api')('schema-estacionamento', 'estacionamentos')
 var funcionario = require('./routes/crud-funcionario/api')('schema-funcionario', 'funcionarios')
 var usuario = require('./routes/crud-usuario/api')('schema-usuario', 'usuarios')
 var gerencia = require('./routes/crud-gerente/api')('schema-gerente', 'gerentes')
 var login = require('./routes/login')
-    // var sinc = require('./routes/crud-login/api')('schema-login', 'login')
 var router = express.Router();
 
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs')
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+// app.use(function(req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+//     next();
+// });
+// app.get('/', function(req, res) {
+//         res.send('Seja Bem-Vindo a API: http://localhost:' + '3000' + '/api');
+//     })
 app.get('/', function(req, res) {
-    res.send('Seja Bem-Vindo a API: http://localhost:' + '3000' + '/api');
-})
+    res.render(path.join(__dirname + '/views/index.html'));
+    //__dirname : It will resolve to your project folder.
+});
 
+// console.log(path.join(__dirname + '/views/index.html'))
 app.use('/api/usuario', usuario)
-app.post('/autenticar', login) // autentica
+app.post('/autentica', login) // autentica
 app.use(require('./routes/verifica-toke')) // verifica o token 
 app.use('/api/funcioario', funcionario)
 app.use('/api/estacionamentos', estacionamento);

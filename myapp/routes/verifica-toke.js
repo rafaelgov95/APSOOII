@@ -14,7 +14,15 @@ module.exports = function(req, res, next) {
             } else {
                 //se tudo correr bem, salver a requisição para o uso em outras rotas
                 req.decoded = decoded;
+                console.log("Passo aqui")
                 console.log(req.decoded)
+
+                // res.json({
+                //     type: true,
+                //     data: user,
+                //     token: user.token
+                // });
+
                 next();
             }
         });

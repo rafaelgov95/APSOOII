@@ -1,11 +1,11 @@
 'use strict'
-
+var path = require('path')
 module.exports = (Schema, Banco) => {
 
     const model = require('../../modules/genericModel')(Schema, Banco)
     const callback = (err, data, res) => {
         if (err) return console.log('erro', err)
-        return res.json(data);
+        res.render(path.join(__dirname + '/../../views/index.html'))
     }
     const Actions = {}
     Actions.listar = (req, res) => {
@@ -15,7 +15,7 @@ module.exports = (Schema, Banco) => {
             });
         },
         Actions.buscar = (req, res) => {
-            const query = req.query;
+            const query = req.params.nome;
             model.findOne(query, (err, data) => {
                 callback(err, data, res)
             });
@@ -25,6 +25,7 @@ module.exports = (Schema, Banco) => {
             const modelo = new model(body);
             modelo.save((err, data) => {
                 callback(err, data, res)
+                    // res.render(path.join(__dirname + '/../views/logadox.html'), { ex: user });
             });
 
         },
