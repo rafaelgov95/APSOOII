@@ -3,10 +3,10 @@
 </div>
 <div id="NavBar" class="navbar navbar-fixed-top">
     <a href="" id="linkLogo">EstAqui</a>
-    <form id="login" action="/autentica" method="post" enctype="application/x-www-form-urlencoded">
-        <input id="email" type="text" placeholder="Email" name="email">
-        <input id="senha" type="password" placeholder="Senha" name="senha">
-        <input id="btnVerde" type="submit" value="Entrar" />
+    <form id="login">
+        <input id="email" type="text" (input)="LoginNome=LoginInPutNome.value" placeholder="Email" name="email" #LoginInPutNome>
+        <input id="senha" type="password" placeholder="Senha" (input)="LoginSenha=LoginInPutSenha.value" #LoginInPutSenha>
+        <input id="btnVerde" value="Entrar" (click)="Logar()" />
     </form>
 </div>
 

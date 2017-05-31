@@ -19,23 +19,22 @@
             </div>
             <div class="col-md-6">
                 <div class="formularioCadastro">
-                    <form id="formCadastro" action="/api/usuario/save" method="post" enctype="application/x-www-form-urlencoded">
-                        <a class="classLinksCorpo" name="cadastro">Cadastre-se</a>
-                        <input type="text" placeholder="Email" name="email" class="form-control">
-                        <input type="text" placeholder="Nome Usuario" name="nome" class="form-control">
-                        <input type="password" placeholder="Senha" class="form-control" name="senha">
-                        <!--<input type="password" placeholder="Confirme sua senha" class="form-control">-->
-                        <input type="text" placeholder="CPF" class="form-control" name="cpf">
-                        <input type="submit" value="Criar" class="btnCriar" />
+                    <form id="formCadastro">
+                        <a class="classLinksCorpo " name="cadastro ">Cadastre-se</a>
+                        <input type="text " placeholder="Email " name="email " class="form-control " #CriarInputNomeUsuario>
+                        <input type="text " placeholder="Nome Usuario " name="nome " class="form-control " #CriarInputEmail>
+                        <input type="password " placeholder="Senha " class="form-control " name="senha " #CriarInputSenha>
+                        <input type="password " placeholder="Confirma Senha " class="form-control " name="senha " #CriarInputConfirmaSenha>
+                        <input type="text " placeholder="CPF " class="form-control " name="cpf " #CriarInputCpf>
+                        <input type="submit " value="Criar " class="btnCriar " (click)="CriarConta()" />
 
-                        <!--<input id="btnCriar" type="submit" value="Criar Conta"/>-->
-                        <!--<a href="" id="btnCriar">Criar Conta</a>-->
+
                     </form>
                 </div>
             </div>
         </div>
-        <div class="classSobre">
-            <a class="classLinksCorpo" name="sobre">Sobre</a>
+        <div class="classSobre ">
+            <a class="classLinksCorpo " name="sobre ">Sobre</a>
             <p>
                 Software desenvolvido por: Higor Chaves, Rafael Viana e Ramon Santos<br> Na matéria Análise e Projeto de Software Orientado a Objetos II<br> Durante o 5º Semestre<br> Do curso Sistemas de Informação<br> Câmpus Coxim<br> Universidade Federal
                 de Mato Grosso do Sul<br> 2017

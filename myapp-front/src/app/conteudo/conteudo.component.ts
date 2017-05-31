@@ -6,7 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conteudo.component.css']
 })
 export class ConteudoComponent implements OnInit {
+CriarEmail:String;
+CriarNome:String;
+CriarSenha:String;
+CriarConfirmaSenha:String;
+CriarCpf:String;
 
+CriarConta(){
+        console.log("Entro ")
+
+  if(this.CriarEmail && this.CriarNome && this.CriarSenha && this.CriarConfirmaSenha && this.CriarCpf ){
+          console.log("Deu Certo 2 ")
+
+    if(this.CriarConfirmaSenha == this.CriarSenha  ){
+      console.log("Deu Certo")
+    }
+  }
+      console.log("Nao Deu Certo")
+
+}
   constructor() { }
 
   ngOnInit() {
