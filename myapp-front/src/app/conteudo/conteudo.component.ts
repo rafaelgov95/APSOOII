@@ -15,7 +15,7 @@ CriarCpf:String;
 CriarConta(){
         console.log("Entro ")
 
-  if(this.CriarEmail && this.CriarNome && this.CriarSenha && this.CriarConfirmaSenha && this.CriarCpf ){
+  if(this.CriarEmail && this.CriarNome && this.CriarSenha && this.CriarConfirmaSenha && this.CriarCpf != null ){
           console.log("Deu Certo 2 ")
 
     if(this.CriarConfirmaSenha == this.CriarSenha  ){
