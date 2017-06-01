@@ -12,7 +12,7 @@ export class HeroFormTemplate1Component {
 
   powers = ['Really Smart', 'Super Flexible', 'Weather Changer'];
 
-  hero = new Hero(18, 'Dr. WhatIsHisWayTooLongName', this.powers[0], 'Dr. What');
+  hero = new Hero('','','','');
 
   submitted = false;
 
@@ -26,7 +26,7 @@ export class HeroFormTemplate1Component {
   active = true;
 
   addHero() {
-    this.hero = new Hero(42, '', '');
+    this.hero = new Hero('','','','');
 
     this.active = false;
     setTimeout(() => this.active = true, 0);

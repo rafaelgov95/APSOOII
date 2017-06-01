@@ -14,12 +14,12 @@ export class HeroFormReactiveComponent implements OnInit {
   powers = ['Really Smart', 'Super Flexible', 'Weather Changer'];
 
   // hero = new Hero(18, 'Dr. WhatIsHisName', this.powers[0], 'Dr. What');
-hero=new Hero(42, '', '');
+// hero=new Hero(42, '', '');
   submitted = false;
 
   onSubmit() {
     this.submitted = true;
-    this.hero = this.heroForm.value;
+    // this.hero = this.heroForm.value;
   }
 
   // Reset the form with a new hero AND restore 'pristine' class state
@@ -28,7 +28,7 @@ hero=new Hero(42, '', '');
   // TODO: Workaround until NgForm has a reset method (#6822)
   active = true;
   addHero() {
-    this.hero = new Hero(42, '', '');
+    // this.hero = new Hero(42, '', '');
     this.buildForm();
 
     this.active = false;
@@ -44,15 +44,15 @@ hero=new Hero(42, '', '');
 
   buildForm(): void {
     this.heroForm = this.fb.group({
-      'name': [this.hero.name, [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(24),
-          forbiddenNameValidator(/bob/i)
-        ]
-      ],
-      'alterEgo': [this.hero.alterEgo],
-      'power':    [this.hero.power, Validators.required]
+      // // 'name': [this.hero.name, [
+      //     Validators.required,
+      //     Validators.minLength(4),
+      //     Validators.maxLength(24),
+      //     forbiddenNameValidator(/bob/i)
+      //   ]
+      // ],
+      // 'alterEgo': [this.hero.alterEgo],
+      // 'power':    [this.hero.power, Validators.required]
     });
 
     this.heroForm.valueChanges
