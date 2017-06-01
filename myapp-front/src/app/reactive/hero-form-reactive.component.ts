@@ -10,15 +10,11 @@ import { PasswordValidation } from './validador-senha.component';
   templateUrl: './hero-form-reactive.component.html'
 })
 export class HeroFormReactiveComponent implements OnInit {
-
-  // powers = ['Really Smart', 'Super Flexible', 'Weather Changer'];
-
-  // hero = new Hero(18, 'Dr. WhatIsHisName', this.powers[0], 'Dr. What');
   hero = new Hero('', '', '', '');
   submitted = false;
   onSubmit() {
     this.submitted = true;
-    // this.hero = this.heroForm.value;
+    this.hero = this.heroForm.value;
   }
 
   // Reset the form with a new hero AND restore 'pristine' class state
