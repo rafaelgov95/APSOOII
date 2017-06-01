@@ -4,7 +4,7 @@ export class Hero {
     public name: string,
     public email:string,
     public senha:string,
-    public confirmarsenha:string
+    public confirmaSenha:string
   ) {  }
 }
 

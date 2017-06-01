@@ -1,22 +1,21 @@
 /* tslint:disable: member-ordering forin */
-import { Component, OnInit }                  from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { Hero }                   from '../shared/hero';
+import { Hero } from '../shared/hero';
 import { forbiddenNameValidator } from '../shared/forbidden-name.directive';
-
+import { PasswordValidation } from './validador-senha.component';
 @Component({
   selector: 'hero-form-reactive3',
   templateUrl: './hero-form-reactive.component.html'
 })
 export class HeroFormReactiveComponent implements OnInit {
 
-  powers = ['Really Smart', 'Super Flexible', 'Weather Changer'];
+  // powers = ['Really Smart', 'Super Flexible', 'Weather Changer'];
 
   // hero = new Hero(18, 'Dr. WhatIsHisName', this.powers[0], 'Dr. What');
-// hero=new Hero(42, '', '');
+  hero = new Hero('', '', '', '');
   submitted = false;
-
   onSubmit() {
     this.submitted = true;
     // this.hero = this.heroForm.value;
@@ -28,7 +27,8 @@ export class HeroFormReactiveComponent implements OnInit {
   // TODO: Workaround until NgForm has a reset method (#6822)
   active = true;
   addHero() {
-    // this.hero = new Hero(42, '', '');
+    this.hero = new Hero('', '', '', '');
+
     this.buildForm();
 
     this.active = false;
@@ -36,7 +36,9 @@ export class HeroFormReactiveComponent implements OnInit {
   }
 
   heroForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    
+  }
 
   ngOnInit(): void {
     this.buildForm();
@@ -44,23 +46,35 @@ export class HeroFormReactiveComponent implements OnInit {
 
   buildForm(): void {
     this.heroForm = this.fb.group({
-      // // 'name': [this.hero.name, [
-      //     Validators.required,
-      //     Validators.minLength(4),
-      //     Validators.maxLength(24),
-      //     forbiddenNameValidator(/bob/i)
-      //   ]
-      // ],
-      // 'alterEgo': [this.hero.alterEgo],
-      // 'power':    [this.hero.power, Validators.required]
+      'name': [this.hero.name, [
+        // Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(24),
+        forbiddenNameValidator(/bob/i)
+      ]
+      ],
+      // '': [this.hero.alterEgo],
+      'email': [this.hero.email, Validators.required],
+      'senha': [this.hero.senha, Validators.required],
+      'confirmaSenha': [this.hero.confirmaSenha, Validators.required]
+
+    }, {
+      validator: PasswordValidation.MatchPassword // your validation method
+
     });
+    function passwordMatchValidator(g: FormGroup) {
+      return g.get('senha').value === g.get('confirmaSenha').value
+        ? null : { 'mismatch': true };
+        
+    }
+          // console.log(g.get('senha').value);
 
     this.heroForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
-
+    // this.passwordMatchValidator();
     this.onValueChanged(); // (re)set validation messages now
-  }
 
+  }
 
   onValueChanged(data?: any) {
     if (!this.heroForm) { return; }
@@ -81,24 +95,32 @@ export class HeroFormReactiveComponent implements OnInit {
 
   formErrors = {
     'name': '',
-   'email': '',
-    'power': ''
+    'email': '',
+    'senha': '',
+    'confirmaSenha': ''
+
   };
 
   validationMessages = {
     'name': {
-      'required':      'Name is required.',
-      'minlength':     'Name must be at least 4 characters long.',
-      'maxlength':     'Name cannot be more than 24 characters long.',
-      'forbiddenName': 'Someone named "Bob" cannot be a hero.'
+      'required': 'Adicione um nome de usuario.',
+      'minlength': 'O nome deve possuir mais de 4 caracters',
+      'maxlength': 'O nome deve possuir menos de 24 caracters',
+      // 'forbiddenName': 'Someone named "Bob" cannot be a hero.'
     }, 'email': {
-      'required':      'Name is required.',
-      'minlength':     'Name must be at least 4 characters long.',
-      'maxlength':     'Name cannot be more than 24 characters long.',
-      'forbiddenName': 'Someone named "Bob" cannot be a hero.'
+      'required': 'Adicione um endereço de Email.',
+      'minlength': 'Name must be at least 4 characters long.',
+      'maxlength': 'Name cannot be more than 24 characters long.',
+       'pattern':'Formato Invalído'
+      // 'forbiddenName': 'Someone named "Bob" cannot be a hero.'
     },
-    'power': {
-      'required': 'Power is required.'
+    'senha': {
+      'required': 'Insira uma senha'
+    },
+    'confirmaSenha': {
+      'required': 'Confirme a senha',
+      'MatchPassword': 'Senhas não coincidem',
+     
     }
   };
 }
