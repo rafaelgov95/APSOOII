@@ -26,7 +26,6 @@ import { NavbarComponent } from './componente/navbar/navbar.component';
     FormsModule,
     HttpModule,
     routing,
-    // MaterializeModule
   ],
   declarations: [
     AppComponent,
