@@ -1,3 +1,4 @@
+// import { MaterializeModule } from 'angular2-materialize';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +25,8 @@ import { NavbarComponent } from './componente/navbar/navbar.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    // MaterializeModule
   ],
   declarations: [
     AppComponent,
@@ -43,7 +45,7 @@ import { NavbarComponent } from './componente/navbar/navbar.component';
     // providers used to create fake backend
     fakeBackendProvider,
     MockBackend,
-    BaseRequestOptions
+    BaseRequestOptions // uma suspeita que aqui que ve a request quando volta 
   ],
   bootstrap: [AppComponent]
 })
