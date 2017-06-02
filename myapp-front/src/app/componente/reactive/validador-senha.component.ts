@@ -1,6 +1,5 @@
 import {AbstractControl} from '@angular/forms';
 export class PasswordValidation {
-
     static MatchPassword(AC: AbstractControl) {
        let senha = AC.get('senha').value; // to get value in input tag
        let confirmaSenha = AC.get('confirmaSenha').value; // to get value in input tag

@@ -6,14 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  LoginNome:String
-  LoginSenha:String
-  Logar(){
-    console.log(this.LoginNome);
-
-    console.log(this.LoginSenha);
-    // alert(LoginNome,LoginSenha);
-  }
+ 
   constructor() { }
 
   ngOnInit() {

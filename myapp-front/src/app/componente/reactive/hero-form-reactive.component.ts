@@ -43,13 +43,12 @@ export class HeroFormReactiveComponent implements OnInit {
   buildForm(): void {
     this.heroForm = this.fb.group({
       'name': [this.hero.name, [
-        // Validators.required,
+        Validators.required,
         Validators.minLength(4),
         Validators.maxLength(24),
-        forbiddenNameValidator(/bob/i)
+        // forbiddenNameValidator(/bob/i)
       ]
       ],
-      // '': [this.hero.alterEgo],
       'email': [this.hero.email, Validators.required],
       'senha': [this.hero.senha, Validators.required],
       'confirmaSenha': [this.hero.confirmaSenha, Validators.required]
@@ -58,16 +57,9 @@ export class HeroFormReactiveComponent implements OnInit {
       validator: PasswordValidation.MatchPassword // your validation method
 
     });
-    function passwordMatchValidator(g: FormGroup) {
-      return g.get('senha').value === g.get('confirmaSenha').value
-        ? null : { 'mismatch': true };
-        
-    }
-          // console.log(g.get('senha').value);
-
+    
     this.heroForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
-    // this.passwordMatchValidator();
     this.onValueChanged(); // (re)set validation messages now
 
   }
