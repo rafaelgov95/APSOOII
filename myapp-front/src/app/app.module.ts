@@ -19,13 +19,14 @@ import { HomeComponent } from './componente/home/index';
 import { LoginComponent } from './componente/login/login.component';
 import { RegisterComponent } from './componente/register/index';
 import { NavbarComponent } from './componente/navbar/navbar.component';
+import { ConteudoComponent } from './componente/conteudo/conteudo.component';
 // LoginComponent
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing,
+    routing
   ],
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { NavbarComponent } from './componente/navbar/navbar.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ConteudoComponent
   ],
   providers: [
     AuthGuard,

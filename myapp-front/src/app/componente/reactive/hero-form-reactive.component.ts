@@ -32,7 +32,7 @@ export class HeroFormReactiveComponent implements OnInit {
   }
 
   heroForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private ) {
     
   }
 

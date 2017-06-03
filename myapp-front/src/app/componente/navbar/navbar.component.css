@@ -1,3 +1,11 @@
+#imgpos {
+    position: absolute;
+    left: 90px;
+    /* posiciona a 90px para a esquerda */
+    top: 70px;
+    /* posiciona a 70px para baixo */
+}
+
 h1,
 input[type=submit] {
     color: black;
@@ -24,10 +32,6 @@ input[type=submit] {
     border: none;
     box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, .3), inset 0 -3px 6px 0 rgba(0, 0, 0, .2), 0 3px 2px 0 rgba(0, 0, 0, .2);
     /*background-image: linear-gradient(to bottom, #57D07F, #66ff66 130%);*/
-}
-
-#btnVerde:hover {
-    background: #66ff33;
 }
 
 #NavBar {
