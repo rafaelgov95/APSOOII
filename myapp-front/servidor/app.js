@@ -39,9 +39,10 @@ app.get('/', function(req, res) {
 
 // console.log(path.join(__dirname + '/views/index.html'))
 
+app.use('/api/users', usuario)
 app.post('/autentica', login) // autentica
 app.use(require('./routes/verifica-toke')) // verifica o token 
-app.use('/api/users', usuario)
+
 app.use('/api/funcioario', funcionario)
 app.use('/api/estacionamento', estacionamento);
 app.use('/api/gerente', gerencia);

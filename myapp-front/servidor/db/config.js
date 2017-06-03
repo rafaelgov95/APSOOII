@@ -1,6 +1,6 @@
 'use strict'
 const mongoose = require('mongoose');
-const dbURI = 'mongodb://localhost:27017/localv'
+const dbURI = 'mongodb://localhost:27017/vouestacionar'
 mongoose.connect(dbURI);
 mongoose.connection.on('connected', function() {
     console.log('Mongoose default connection conectado  open to ' + dbURI);

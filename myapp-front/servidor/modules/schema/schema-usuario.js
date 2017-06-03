@@ -5,12 +5,12 @@ const sexo = require('../filds/fild-sexo')
 const created_at = require('../quarks/quarks-create-now.js');
 
 const UsuarioSchema = new mg.Schema({
-        nome: nome,
+        // nome: nome,
         email: { type: String, required: true, unique: true },
         senha: String,
-        sexo: String,
-        cpf: { type: String, required: true, unique: true },
-        telefone: Number,
+        // sexo: String,
+        // cpf: { type: String, required: true, unique: true },
+        // telefone: Number,
         accessToken: { type: String },
         criada_em: created_at
     })

@@ -22,6 +22,7 @@ module.exports = (Schema, Banco) => {
         },
         Actions.save = (req, res) => {
             const body = req.body;
+            console.log(body);
             const modelo = new model(body);
             modelo.save((err, data) => {
                 callback(err, data, res)
