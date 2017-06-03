@@ -8,8 +8,10 @@ export class AuthenticationService {
     constructor(private http: Http) { }
 
     login(username: string, password: string) {
-        return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
+        console.log('teste');
+        return this.http.post('/api/autentica', JSON.stringify({ email: username, senha: password }))
             .map((response: Response) => {
+                      console.log('teste');
                 // login successful if there's a jwt token in the response
                 let user = response.json();
                 if (user && user.token) {

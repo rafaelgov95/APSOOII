@@ -17,7 +17,7 @@ import { AuthGuard } from './componente/_guards/index';
 import { AlertService, AuthenticationService, UserService } from './componente/_services/index';
 import { HomeComponent } from './componente/home/index';
 import { LoginComponent } from './componente/login/login.component';
-import { RegisterComponent } from './componente/register/index';
+import { RegisterComponent } from './componente/register/register.component';
 import { NavbarComponent } from './componente/navbar/navbar.component';
 import { ConteudoComponent } from './componente/conteudo/conteudo.component';
 // LoginComponent
@@ -44,7 +44,7 @@ import { ConteudoComponent } from './componente/conteudo/conteudo.component';
     UserService,
 
     // providers used to create fake backend
-    fakeBackendProvider,
+    // fakeBackendProvider,
     MockBackend,
     BaseRequestOptions // uma suspeita que aqui que ve a request quando volta 
   ],

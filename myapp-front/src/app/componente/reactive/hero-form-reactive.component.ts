@@ -32,7 +32,7 @@ export class HeroFormReactiveComponent implements OnInit {
   }
 
   heroForm: FormGroup;
-  constructor(private fb: FormBuilder, private ) {
+  constructor(private fb: FormBuilder ) {
     
   }
 
@@ -54,7 +54,7 @@ export class HeroFormReactiveComponent implements OnInit {
       'confirmaSenha': [this.hero.confirmaSenha, Validators.required]
 
     }, {
-      validator: PasswordValidation.MatchPassword // your validation method
+      validator: PasswordValidation.MatchPassword // your validation metho
 
     });
     
