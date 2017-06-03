@@ -48,7 +48,6 @@ export class AuthenticationService {
                     }
                 }
                 else {
-                    console.log("erro");
                     return body;
                 }
             });
