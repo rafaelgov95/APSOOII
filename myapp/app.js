@@ -26,26 +26,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(function(req, res, next) {
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
-//     next();
-// });
-// app.get('/', function(req, res) {
-//         res.send('Seja Bem-Vindo a API: http://localhost:' + '3000' + '/api');
-//     })
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    next();
+});
 app.get('/', function(req, res) {
     res.render(path.join(__dirname + '/views/index.html'));
     //__dirname : It will resolve to your project folder.
 });
 
 // console.log(path.join(__dirname + '/views/index.html'))
-app.use('/api/usuario', usuario)
+
 app.post('/autentica', login) // autentica
 app.use(require('./routes/verifica-toke')) // verifica o token 
+app.use('/api/users', usuario)
 app.use('/api/funcioario', funcionario)
-app.use('/api/estacionamentos', estacionamento);
+app.use('/api/estacionamento', estacionamento);
 app.use('/api/gerente', gerencia);
 
 
