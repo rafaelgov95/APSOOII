@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService, AuthenticationService } from '../_services/index';
@@ -13,7 +13,10 @@ export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
-
+    loginActive = true;
+    legout=true;
+    //  @Output() legout=false;
+    //  @Output() modouValor = new EventEmitter();
     constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -29,14 +32,20 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+        
         console.log("Teste");
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
                 data => {
+                    console.log(this.loginActive);
                     this.router.navigate([this.returnUrl]);
                             this.loading = false;
-                },
+                             this.loginActive=false;
+                             this.legout=true;
+          
+                                
+             },
                 error => {
                     this.alertService.error(error);
                     this.loading = false;

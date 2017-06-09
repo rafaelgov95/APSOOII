@@ -2,3 +2,22 @@
     color: blue;
     background: blue;
 }
+
+.btn {
+    height: 100px!important;
+}
+
+.btn,
+.btn-large,
+.btn-flat {
+    height: 100px!important;
+}
+
+.btn,
+.btn-large {
+    height: 100px!important;
+}
+
+btndoido {
+    color: royalblue!important;
+}
